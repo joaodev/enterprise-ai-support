@@ -3,11 +3,14 @@ package com.joaodev.aisupport.support.adapter.out.decision;
 import com.joaodev.aisupport.support.application.AgentDecision;
 import com.joaodev.aisupport.support.application.port.out.AgentDecisionPort;
 import com.joaodev.aisupport.support.domain.Order;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 
-@Repository
+@Component
+@Profile("!ollama")
 public class RuleBasedAgentDecisionAdapter implements AgentDecisionPort {
 
     @Override
