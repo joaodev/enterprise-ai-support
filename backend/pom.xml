@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.joaodev</groupId>
-    <artifactId>backend</artifactId>
+    <artifactId>ai-support-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>backend</name>
-    <description>backend</description>
+    <name>ai-support-api</name>
+    <description>Enterprise AI Support API</description>
     <url/>
     <licenses>
         <license/>
