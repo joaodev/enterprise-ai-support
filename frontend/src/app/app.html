@@ -1,0 +1,100 @@
+<main class="container">
+  <header class="header">
+    <span class="eyebrow">JAVA · ANGULAR · AGENTIC AI</span>
+
+    <h1>Enterprise AI Support</h1>
+
+    <p>
+      An auditable support workflow that analyzes orders
+      and executes business actions.
+    </p>
+  </header>
+
+  <div class="workspace">
+    <form
+      class="panel"
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+    >
+      <h2>Customer request</h2>
+
+      <label for="customerId">Customer</label>
+
+      <input
+        id="customerId"
+        type="text"
+        formControlName="customerId"
+      >
+
+      <label for="orderId">Order</label>
+
+      <select
+        id="orderId"
+        formControlName="orderId"
+      >
+        <option value="order-18273">
+          order-18273 — delayed
+        </option>
+
+        <option value="order-10001">
+          order-10001 — delivered
+        </option>
+      </select>
+
+      <label for="message">Message</label>
+
+      <textarea
+        id="message"
+        rows="5"
+        formControlName="message"
+      ></textarea>
+
+      <button
+        type="submit"
+        [disabled]="loading()"
+      >
+        {{ loading() ? 'Agent analyzing...' : 'Run support agent' }}
+      </button>
+    </form>
+
+    <section class="panel result">
+      <h2>Execution trace</h2>
+
+      @if (result(); as supportResult) {
+        <span class="status">
+          {{ supportResult.orderStatus }}
+        </span>
+
+        <p class="answer">
+          {{ supportResult.answer }}
+        </p>
+
+        <h3>Executed tools</h3>
+
+        <ol class="tools">
+          @for (
+            tool of supportResult.executedTools;
+            track tool
+            ) {
+            <li>{{ tool }}</li>
+          }
+        </ol>
+
+        @if (supportResult.ticketId) {
+          <div class="ticket">
+            Ticket created:
+            <strong>{{ supportResult.ticketId }}</strong>
+          </div>
+        }
+      } @else if (errorMessage()) {
+        <p class="error">
+          {{ errorMessage() }}
+        </p>
+      } @else {
+        <p class="empty">
+          The agent execution trace will appear here.
+        </p>
+      }
+    </section>
+  </div>
+</main>

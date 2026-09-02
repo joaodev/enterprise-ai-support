@@ -1,0 +1,178 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at top right, #064e3b 0, transparent 30%),
+    #090d14;
+}
+
+.container {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.header {
+  max-width: 760px;
+  margin-bottom: 32px;
+
+  h1 {
+    margin: 12px 0;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    letter-spacing: -0.05em;
+  }
+
+  p {
+    color: #a8b0bd;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.eyebrow {
+  color: #5ee9b5;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.panel {
+  min-height: 430px;
+  padding: 28px;
+  border: 1px solid #293242;
+  border-radius: 16px;
+  background: #141923;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 30%);
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin: 14px 0 7px;
+    color: #a8b0bd;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 12px;
+    color: #f8fafc;
+    border: 1px solid #354052;
+    border-radius: 8px;
+    outline: none;
+    background: #0d121a;
+    font: inherit;
+
+    &:focus {
+      border-color: #5ee9b5;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 13px;
+    color: #07130f;
+    border: 0;
+    border-radius: 8px;
+    background: #5ee9b5;
+    font-weight: 800;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+  }
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 10px;
+  color: #5ee9b5;
+  border: 1px solid #287059;
+  border-radius: 999px;
+  background: #12382c;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+.answer {
+  min-height: 60px;
+  line-height: 1.6;
+}
+
+.tools {
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 8px;
+    padding: 11px;
+    border: 1px solid #293242;
+    border-radius: 7px;
+    background: #0d121a;
+
+    &::before {
+      margin-right: 10px;
+      color: #5ee9b5;
+      content: "✓";
+    }
+  }
+}
+
+.ticket {
+  margin-top: 20px;
+  padding: 14px;
+  border-left: 3px solid #5ee9b5;
+  background: rgb(94 233 181 / 8%);
+
+  strong {
+    display: block;
+    margin-top: 5px;
+    color: #5ee9b5;
+  }
+}
+
+.empty {
+  margin-top: 80px;
+  color: #747f90;
+  text-align: center;
+}
+
+.error {
+  padding: 14px;
+  color: #fecaca;
+  border: 1px solid #7f1d1d;
+  border-radius: 8px;
+  background: #450a0a;
+}
+
+@media (width <= 780px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 36px 0;
+  }
+}
