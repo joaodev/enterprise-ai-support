@@ -13,9 +13,9 @@ import java.util.Optional;
 public class InMemoryOrderAdapter implements OrderQueryPort {
 
     private final Map<String, Order> orders = Map.of(
-            "order-12345",
+            "order-18273",
             new Order(
-                    "order-12345",
+                    "order-18273",
                     "customer-1",
                     OrderStatus.SHIPPED,
                     LocalDate.now().minusDays(3)
